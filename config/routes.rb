@@ -3,7 +3,10 @@ ProjectK::Application.routes.draw do
 
   root :to => 'pages#index'
 
-
+  get 'products' => 'Pages#products'
+  get 'about' => 'Pages#about'
+  get 'contact' => 'Pages#contact'
+  get 'vehicleSearch' => 'Products#vehicleSearch'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
