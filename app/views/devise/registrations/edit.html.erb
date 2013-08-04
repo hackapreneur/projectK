@@ -1,12 +1,25 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+
+<%= image_tag(@user.image(:thumb)) %>
+
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size, class: "alert alert-error" %>
+  <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
+   <%= f.input :image, label: "Upload an Image" %>
   <%= f.input :email %>
   <%= f.input :password, label: "New Password", autocomplete: "off" %>
   <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
-
+  <%= f.input :current_password %>
+  <%= f.input :Username, label: "Username" %>
+  <%= f.input :FirstName, label: "First Name" %>
+  <%= f.input :LastName, label: "Last Name" %>
+  <%= f.input :Birthday %>
+  <%= f.input :Address %>
+  <%= f.input :Industry %>
+  <%= f.input :Phone %>
   
 
   <div class="form-actions">

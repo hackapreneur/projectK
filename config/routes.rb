@@ -1,10 +1,11 @@
 ProjectK::Application.routes.draw do
 
+  get "users/profilelink"
 
   resources :products
 
-
   devise_for :users
+  match 'users/:id' => 'users#profilelink', as: :user
 
   root :to => 'pages#index'
 
@@ -12,7 +13,9 @@ ProjectK::Application.routes.draw do
   get 'about' => 'Pages#about'
   get 'contact' => 'Pages#contact'
   get 'vehicleSearch' => 'Products#vehicleSearch'
-  
+ # get 'users' => "Users#profilelink"
+#match 'users/:id' => "Users#profilelink"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

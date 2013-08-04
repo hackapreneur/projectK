@@ -1,0 +1,37 @@
+<h1>View all vehicles</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th></th>
+    <th>Stock Number</th>
+    <th>Year</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Transmission</th>
+    <th>VIN</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+    <% @products.each do |product| %>
+    <tr>
+          <td><%= link_to image_tag(product.image(:thumb)), product %></td>
+          <td><%= product.StockNumber %></td>
+          <td><%= product.ModelYear %></td>
+          <td><%= product.Make %></td>
+          <td><%= product.Model %></td>
+          <td><%= product.Transmission %></td>
+          <td><%= product.VIN %></td>
+          <td><%= product.Price %></td>
+
+          <td><%= link_to 'View', product, class: "btn btn-primary"  %>
+          <% if current_user == product.user %>
+          <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary"  %>
+          <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %></td>
+            <% end %>
+    </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
