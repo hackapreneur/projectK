@@ -1,12 +1,37 @@
-<%= simple_form_for(@product) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@product, html: { class: 'form-horizontal'}) do |f| %>
+  <% if @product.errors.any? %>
+    <%= f.error_notification %>
+    <%= f.full_error :image_file_size, class: "alert alert-error"%>
+    <%= f.full_error :image_content_type, class: "alert alert-error"%>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :title, label: "Title"  %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+ <div class="form-inputs">
+
+    <%= f.input :image, label: "Upload an Image" %>
+   <%= f.input :title, label: "Title"  %>
+   <%= f.input :description, label: "Description" %>
+   <%= f.input :VIN, label: "VIN"  %>
+   <%= f.input :StockNumber, label: "Stock Number"  %>
+   <%= f.input :ModelYear, label: "Model Year"  %>
+   <%= f.input :Make, label: "Make" %>
+   <%= f.input :Model, label: "Model" %>
+   <%= f.input :Trim, label:  "Trim" %>
+   <%= f.input :BodyStyle, label:  "Body Style" %>
+   <%= f.input :Mileage, label: "Mileage" %>
+   <%= f.input :EngineDescription, label:  "Engine Description" %>
+   <%= f.input :Cylinders, label:  "Cylinders" %>
+   <%= f.input :FuelType, label:  "Fuel Type" %>
+   <%= f.input :Transmission, label:  "Transmission" %>
+   <%= f.input :Price, label:  "Price" %>
+   <%= f.input :ExteriorColor, label: "Exterior Color" %>
+   <%= f.input :InteriorColor, label:  "Interior Color" %>
+   <%= f.input :OptionText, label: "Option Text" %>
+   <%= f.input :Images, label: "Images" %>
+   <%= f.input :VehicleLink, label: "Vehicle Link" %>
+   <%= f.input :NewUsed, label: "New / Used" %>
+   <%= f.input :DateSold, label: "Date Sold" %>
+
+
+    <%= f.button :submit,  class: "btn btn-primary" %>
 <% end %>
