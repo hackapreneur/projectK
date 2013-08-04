@@ -77,7 +77,4 @@ ProjectK::Application.configure do
     }
   }
 
-
-
-  
 end
